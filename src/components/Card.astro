@@ -1,61 +1,96 @@
 ---
-interface Props {
-	title: string;
-	body: string;
-	href: string;
-}
-
-const { href, title, body } = Astro.props;
+import LinkButton from "@/components/LinkButton.astro";
+import LinkedInIcon from "@/components/icons/LinkedInIcon.astro";
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
+<article id="card-container" class="[perspective:1000px]">
+  <div
+    id="ticket"
+    class="w-[800px] aspect-[16/9] border-8 border-white/80 rounded-2xl shadow-[0_0_15px_white] relative"
+  >
+    <div class="w-full h-full flex justify-center gap-8 p-4">
+      <div
+        id="title-container"
+        class="w-3/5 flex flex-col justify-center items-center"
+      >
+        <h1 class="text-white text-6xl font-bold text-balance my-2">
+          Hola, soy Robert!
+        </h1>
+        <p class="text-white/80 text-pretty">
+          Soy un Frontend Developer con conocimiento en Backend. De Buenos
+          Aires, Argentina.
+        </p>
+      </div>
+
+      <div id="profile-container">
+        <span id="profile" class="relative w-56 h-96 flex object-center"></span>
+      </div>
+    </div>
+    <div
+      id="bg"
+      class="absolute inset-0 w-full h-full backdrop-blur-sm rounded-lg -z-50"
+    >
+    </div>
+  </div>
+</article>
+
 <style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
+  #ticket {
+    transition:
+      transform 0.5s ease-in-out,
+      scale 0.5s ease-in-out;
+  }
+
+  #ticket:hover {
+    transition: scale 0.5s ease-in-out;
+    scale: 1.1;
+  }
+
+  #profile-container,
+  #title-container {
+    z-index: -1;
+  }
+
+  #profile {
+    background-image: url("../assets/profile.png");
+    background-position: center top;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+  }
+
+  #profile::before {
+    content: "";
+    width: 100%;
+    height: 50px;
+    border: 8px solid white;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    overflow: hidden;
+    background: radial-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.1)
+    );
+    border-radius: 50%;
+    z-index: -1;
+    box-shadow: 0 0 10px white;
+  }
+
+  #profile::after {
+    content: "";
+    width: 100%;
+    height: 50px;
+    border: 8px solid white;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    overflow: hidden;
+    border-radius: 50%;
+    z-index: 1;
+  }
 </style>
+
+<script src="../scripts/card.js"></script>

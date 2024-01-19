@@ -1,0 +1,26 @@
+---
+const { class: className, id } = Astro.props;
+---
+
+<section
+  id={id}
+  data-section={id}
+  class={`section ${className} w-full mx-auto pd-24`}
+>
+  <slot />
+</section>
+
+<style>
+  .intro {
+    animation: background-movement 120s linear infinite;
+  }
+
+  @keyframes background-movement {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -400% -100%;
+    }
+  }
+</style>
