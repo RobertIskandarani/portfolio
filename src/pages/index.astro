@@ -2,15 +2,18 @@
 import Layout from "@/layouts/Layout.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import Card from "@/components/Card.astro";
+import StarsBackground from "@/components/StarsBackground.astro";
 ---
 
 <Layout title="Portfolio - Robert Iskandarani">
   <main class="w-full">
-    <SectionContainer
-      class="intro -z-1 h-screen flex justify-center items-center bg-[url('src/assets/stars.png')] bg-auto bg-fixed"
-    >
-      <Card client:load />
+    <SectionContainer class="h-screen flex justify-center items-center">
+      <Card />
     </SectionContainer>
-    <SectionContainer id="experiencia" class="h-screen bg-red-500" />
+    <SectionContainer
+      id="experiencia"
+      class="h-screen flex justify-center items-center"
+    />
+    <StarsBackground />
   </main>
 </Layout>

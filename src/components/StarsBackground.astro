@@ -1,0 +1,23 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div
+  class={`${className} intro fixed inset-0 h-full w-full bg-[url('src/assets/space.svg')] bg-auto  -z-50`}
+>
+</div>
+
+<style>
+  .intro {
+    animation: background-movement 300s linear infinite;
+  }
+
+  @keyframes background-movement {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -1000% -1000%;
+    }
+  }
+</style>
