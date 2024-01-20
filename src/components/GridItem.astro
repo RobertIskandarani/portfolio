@@ -1,0 +1,13 @@
+---
+const { class: className, href } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={`grid-item ${className} relative group overflow-hidden cursor-pointer flex justify-center items-center rounded-md bg-[#090A0C]/90 border border-gray-300/80 transition-all duration-300 hover:shadow-[0_0_10px_rgba(255,255,255,.75)]`}
+>
+  <slot name="image" />
+  <slot name="content" />
+</a>
