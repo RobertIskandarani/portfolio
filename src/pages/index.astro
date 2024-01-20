@@ -3,12 +3,18 @@ import Layout from "@/layouts/Layout.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import Card from "@/components/Card.astro";
 import StarsBackground from "@/components/StarsBackground.astro";
+import ScrollIcon from "@/components/icons/ScrollIcon.astro";
 ---
 
 <Layout title="Portfolio - Robert Iskandarani">
   <main class="w-full">
-    <SectionContainer class="h-screen flex justify-center items-center">
+    <SectionContainer
+      class="h-screen flex justify-center items-center relative"
+    >
       <Card />
+      <ScrollIcon
+        class="absolute bottom-12 animate-[scroll-down_1s_infinite]"
+      />
     </SectionContainer>
     <SectionContainer
       id="experiencia"
@@ -17,3 +23,17 @@ import StarsBackground from "@/components/StarsBackground.astro";
     <StarsBackground />
   </main>
 </Layout>
+
+<style>
+  @keyframes scroll-down {
+    0%,
+    100% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+</style>
