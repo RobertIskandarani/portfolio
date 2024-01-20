@@ -7,6 +7,8 @@ interface Props {
 const { href, title } = Astro.props;
 ---
 
-<li class="px-4 cursor-pointer rounded-xl hover:bg-[#171717]">
+<li
+  class="px-2 sm:px-3 transition-all duration-300 text-sm sm:text-base cursor-pointer rounded-xl hover:bg-[#171717]"
+>
   <a href={href}>{title}</a>
 </li>
