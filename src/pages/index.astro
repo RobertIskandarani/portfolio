@@ -8,32 +8,13 @@ import ScrollIcon from "@/components/icons/ScrollIcon.astro";
 
 <Layout title="Portfolio - Robert Iskandarani">
   <main class="w-full">
-    <SectionContainer
-      class="h-screen flex justify-center items-center relative"
-    >
+    <SectionContainer class="flex h-dvh justify-center items-center relative">
       <Card />
       <ScrollIcon
-        class="absolute bottom-12 animate-[scroll-down_1s_infinite]"
+        class="hidden md:block md:absolute md:bottom-3 md:animate-bounce"
       />
     </SectionContainer>
-    <SectionContainer
-      id="experiencia"
-      class="h-screen flex justify-center items-center"
-    />
+
     <StarsBackground />
   </main>
 </Layout>
-
-<style>
-  @keyframes scroll-down {
-    0%,
-    100% {
-      transform: translateY(-25%);
-      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-    }
-    50% {
-      transform: translateY(0);
-      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
-  }
-</style>
