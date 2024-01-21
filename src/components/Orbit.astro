@@ -1,0 +1,172 @@
+---
+import ReactIcon from "@/components/icons/ReactIcon.astro";
+import Planet from "@/components/Planet.astro";
+import PythonIcon from "@/components/icons/PythonIcon.astro";
+import HTML5Icon from "@/components/icons/HTML5Icon.astro";
+import CSSIcon from "@/components/icons/CSSIcon.astro";
+import MongoDBIcon from "@/components/icons/MongoDBIcon.astro";
+import FigmaIcon from "@/components/icons/FigmaIcon.astro";
+import PhotoshopIcon from "@/components/icons/PhotoshopIcon.astro";
+import PostmanIcon from "@/components/icons/PostmanIcon.astro";
+import GitIcon from "@/components/icons/GitIcon.astro";
+import GithubIcon from "@/components/icons/GithubIcon.astro";
+import GitlabIcon from "@/components/icons/GitlabIcon.astro";
+import NodeJSIcon from "@/components/icons/NodeJSIcon.astro";
+import JavascriptIcon from "@/components/icons/JavascriptIcon.astro";
+import TypescriptIcon from "@/components/icons/TypescriptIcon.astro";
+import TailwindIcon from "@/components/icons/TailwindIcon.astro";
+import AstroIcon from "@/components/icons/AstroIcon.astro";
+---
+
+<article
+  id="orbit"
+  class="rounded-full border border-transparent flex justify-center items-center w-2/3 aspect-square relative"
+>
+  <Planet
+    class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-2-2_15s_linear_infinite_reverse]"
+  >
+    <ReactIcon />
+  </Planet>
+  <Planet
+    class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-2-1_15s_linear_infinite_reverse]"
+  >
+    <AstroIcon />
+  </Planet>
+  <div
+    id="orbit"
+    class="rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative"
+  >
+    <Planet
+      class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_25s_linear_infinite]"
+    >
+      <HTML5Icon />
+    </Planet>
+    <Planet
+      class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_25s_linear_infinite]"
+    >
+      <CSSIcon />
+    </Planet>
+    <Planet
+      class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_25s_linear_infinite]"
+    >
+      <TailwindIcon />
+    </Planet>
+    <div
+      id="orbit"
+      class="rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative"
+    >
+      <Planet
+        class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_20s_linear_infinite_reverse]"
+      >
+        <NodeJSIcon />
+      </Planet>
+      <Planet
+        class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_20s_linear_infinite_reverse]"
+      >
+        <JavascriptIcon />
+      </Planet>
+      <Planet
+        class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_20s_linear_infinite_reverse]"
+      >
+        <TypescriptIcon />
+      </Planet>
+      <div
+        id="orbit"
+        class="rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative"
+      >
+        <Planet
+          class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_30s_linear_infinite]"
+        >
+          <GitIcon />
+        </Planet>
+        <Planet
+          class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_30s_linear_infinite]"
+        >
+          <GithubIcon />
+        </Planet>
+        <Planet
+          class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_30s_linear_infinite]"
+        >
+          <GitlabIcon />
+        </Planet>
+        <div
+          id="orbit"
+          class="rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative"
+        >
+          <Planet
+            class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_30s_linear_infinite_reverse]"
+          >
+            <FigmaIcon />
+          </Planet>
+          <Planet
+            class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_30s_linear_infinite_reverse]"
+          >
+            <PhotoshopIcon />
+          </Planet>
+          <Planet
+            class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_30s_linear_infinite_reverse]"
+          >
+            <PostmanIcon />
+          </Planet>
+          <div
+            id="orbit"
+            class="rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative"
+          >
+            <Planet
+              class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-2-2_15s_linear_infinite]"
+            >
+              <PythonIcon />
+            </Planet>
+            <Planet
+              class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-2-1_15s_linear_infinite]"
+            >
+              <MongoDBIcon />
+            </Planet>
+            <span
+              id="profile2"
+              class="w-3/4 h-4/5 bg-[url('/profile2.svg')] flex justify-center items-end rounded-b-full bg-no-repeat bg-center bg-contain relative"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  #profile2::before {
+    content: "";
+    width: 100%;
+    height: 93.75%;
+    border-radius: 50%;
+    background-color: rgb(56 189 248);
+    z-index: -1;
+  }
+
+  #orbit::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.6)
+    );
+    border: inherit;
+    border-radius: inherit;
+    mask:
+      linear-gradient(white, white) padding-box,
+      linear-gradient(white, white);
+    mask-composite: exclude;
+  }
+</style>

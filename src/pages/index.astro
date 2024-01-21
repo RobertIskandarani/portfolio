@@ -4,7 +4,8 @@ import SectionContainer from "@/components/SectionContainer.astro";
 import Card from "@/components/Card.astro";
 import StarsBackground from "@/components/StarsBackground.astro";
 import ScrollIcon from "@/components/icons/ScrollIcon.astro";
-import GridItem from "@/components/GridItem.astro";
+import Orbit from "@/components/Orbit.astro";
+import BentoGrid from "@/components/BentoGrid.astro";
 ---
 
 <Layout title="Portfolio - Robert Iskandarani">
@@ -23,62 +24,17 @@ import GridItem from "@/components/GridItem.astro";
       <h1 class="text-white text-3xl md:text-6xl font-bold my-8">
         Mis proyectos
       </h1>
-      <div
-        class="w-4/5 lg:w-2/3 grid place-content-center md:grid-cols-2 lg:grid-cols-5 grid-cols-1 gap-4 max-w-4/5 auto-rows-[300px]"
-      >
-        <GridItem
-          href="https://nu-world.vercel.app/"
-          class="lg:col-start-1 lg:col-end-4"
-        >
-          <img
-            slot="image"
-            src="/projects/NUWD.webp"
-            alt="NUWD"
-            class="absolute inset-0 w-full h-auto group-hover:scale-110 transition-scale duration-300"
-          />
-        </GridItem>
-        <GridItem
-          href="https://100-days-of-css-coral.vercel.app/"
-          class="lg:col-start-4 lg:col-end-6"
-        >
-          <img
-            slot="image"
-            src="/projects/css-personal.webp"
-            alt="100 Days of CSS"
-            class="absolute inset-0 w-full h-auto scale-150 my-auto group-hover:scale-[160%] transition-scale duration-300"
-          />
-          <!-- <div
-            slot="content"
-            class="w-full h-full p-4 bg-[#171717]/50 absolute inset-0"
-          >
-          </div> -->
-        </GridItem>
-        <GridItem
-          href="https://100-macabeos-dicen.vercel.app/"
-          class="lg:col-start-1 lg:col-end-3"
-        >
-          <img
-            slot="image"
-            src="/projects/100-macabeos-dicen.webp"
-            alt="100 macabeos dicen"
-            class="absolute inset-0 w-full h-auto scale-150 my-auto group-hover:scale-[160%] transition-scale duration-300"
-          />
-        </GridItem>
-        <GridItem
-          href="https://iomha.vercel.app/"
-          class="lg:col-start-3 lg:col-end-6"
-        >
-          <img
-            slot="image"
-            src="/projects/iom-ha-madrij.webp"
-            alt="iom ha madrij"
-            class="absolute inset-0 w-full h-auto group-hover:scale-110 transition-scale duration-300"
-          />
-        </GridItem>
-      </div>
+      <BentoGrid />
       <span
         class="absolute top-2/5 w-3/4 h-3/4 rounded-full -z-40 bg-[#2d2d2d]/60 blur-3xl drop-shadow-[0_0_5px_rgba(255,255,255,.5)]"
       ></span>
+    </SectionContainer>
+
+    <SectionContainer
+      id="Tecnologias"
+      class="flex min-h-dvh justify-center items-center relative my-16"
+    >
+      <Orbit />
     </SectionContainer>
     <StarsBackground />
   </main>
