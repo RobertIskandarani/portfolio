@@ -6,6 +6,7 @@ import ScrollIcon from "@/components/icons/ScrollIcon.astro";
 import Orbit from "@/components/Orbit.astro";
 import Timeline from "@/components/Timeline.astro";
 import LinkedInIcon from "@/components/icons/LinkedInIcon.astro";
+import LinkButton from "@/components/LinkButton.astro";
 ---
 
 <Layout title="Portfolio - Robert Iskandarani">
@@ -26,21 +27,16 @@ import LinkedInIcon from "@/components/icons/LinkedInIcon.astro";
           class="flex flex-col sm:flex-row justify-between items-center w-full"
         >
           <h1
-            class="text-white text-3xl text-center sm:text-left md:text-5xl font-bold my-8"
+            class="text-white text-3xl text-center sm:text-left md:text-5xl font-bold my-8 uppercase"
           >
             Experiencia laboral
           </h1>
-          <a
+          <LinkButton
             href="https://www.linkedin.com/in/robertiskandarani/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="rounded-full mb-4 sm:mb-0 text-base font-light px-4 py-2 flex justify-center items-center gap-4 border border-white bg-[#212121]/70 hover:bg-[#212121] hover:scale-105"
+            content="LinkedIn"
           >
-            <figure class="w-6 h-6">
-              <LinkedInIcon />
-            </figure>
-             LinkedIn
-          </a>
+            <LinkedInIcon slot="icon" />
+          </LinkButton>
         </div>
         <Timeline />
       </div>
