@@ -1,0 +1,25 @@
+---
+interface Props {
+  href: string;
+  content: string;
+}
+
+const { href, content } = Astro.props;
+---
+
+<li class="hover:bg-[#212121] rounded-xl p-2 transition-bg duration-300">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    download="CV-Roberto-Iskandarani"
+    class="flex flex-col justify-center items-center gap-2"
+  >
+    <figure class="max-w-14">
+      <slot name="icon" />
+    </figure>
+    <h2 class="text-white text-base px-2 py-1 rounded-2xl uppercase">
+      {content}
+    </h2>
+  </a>
+</li>

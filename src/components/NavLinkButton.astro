@@ -8,10 +8,7 @@ const { href, title } = Astro.props;
 ---
 
 <li
-  class="px-2 sm:px-3 transition-all duration-300 text-xs sm:text-base group cursor-pointer rounded-xl hover:bg-[#171717]"
+  class="px-2 sm:px-3 transition-all duration-300 text-xs sm:text-base group cursor-pointer rounded-xl hover:bg-[#212121]"
 >
-  <a
-    class="group-hover:drop-shadow-[0_0_5px_white] transition-all duration-300"
-    href={href}>{title}</a
-  >
+  <a href={href}>{title}</a>
 </li>

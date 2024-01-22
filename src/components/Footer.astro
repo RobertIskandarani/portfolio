@@ -1,1 +1,25 @@
+---
+import FooterLink from "./FooterLink.astro";
+import DownloadIcon from "./icons/DownloadIcon.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
+---
 
+<footer
+  class="w-full flex justify-center items-center py-20 mt-16 bg-black/30 backdrop-blur-sm"
+>
+  <ul class="flex flex-col sm:flex-row justify-center items-center w-2/3 gap-8">
+    <FooterLink
+      href="https://www.linkedin.com/in/robertiskandarani/"
+      content="LinkedIn"
+    >
+      <LinkedInIcon slot="icon" color="white" />
+    </FooterLink>
+    <FooterLink href="/Profile.pdf" content="Descargar CV">
+      <DownloadIcon slot="icon" color="white" />
+    </FooterLink>
+    <FooterLink href="https://github.com/RobertIskandarani" content="Github">
+      <GithubIcon slot="icon" color="white" />
+    </FooterLink>
+  </ul>
+</footer>
