@@ -2,10 +2,10 @@
 import Layout from "@/layouts/Layout.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import Card from "@/components/Card.astro";
-import StarsBackground from "@/components/StarsBackground.astro";
 import ScrollIcon from "@/components/icons/ScrollIcon.astro";
 import Orbit from "@/components/Orbit.astro";
-import BentoGrid from "@/components/BentoGrid.astro";
+import Timeline from "@/components/Timeline.astro";
+import LinkedInIcon from "@/components/icons/LinkedInIcon.astro";
 ---
 
 <Layout title="Portfolio - Robert Iskandarani">
@@ -18,16 +18,41 @@ import BentoGrid from "@/components/BentoGrid.astro";
     </SectionContainer>
 
     <SectionContainer
+      id="Experiencia"
+      class="flex min-h-dvh justify-center items-center relative my-16"
+    >
+      <div class="w-11/12 sm:w-2/3 flex-col justify-center items-start">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center w-full"
+        >
+          <h1
+            class="text-white text-3xl text-center sm:text-left md:text-5xl font-bold my-8"
+          >
+            Experiencia laboral
+          </h1>
+          <a
+            href="https://www.linkedin.com/in/robertiskandarani/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full mb-4 sm:mb-0 text-base font-light px-4 py-2 flex justify-center items-center gap-4 border border-white bg-[#212121]/70 hover:bg-[#212121] hover:scale-105"
+          >
+            <figure class="w-6 h-6">
+              <LinkedInIcon />
+            </figure>
+             LinkedIn
+          </a>
+        </div>
+        <Timeline />
+      </div>
+    </SectionContainer>
+
+    <SectionContainer
       id="Proyectos"
       class="min-h-dvh flex flex-col justify-center items-center relative"
     >
       <h1 class="text-white text-3xl md:text-6xl font-bold my-8">
         Mis proyectos
       </h1>
-      <BentoGrid />
-      <span
-        class="absolute top-2/5 w-3/4 h-3/4 rounded-full -z-40 bg-[#2d2d2d]/60 blur-3xl drop-shadow-[0_0_5px_rgba(255,255,255,.5)]"
-      ></span>
     </SectionContainer>
 
     <SectionContainer
