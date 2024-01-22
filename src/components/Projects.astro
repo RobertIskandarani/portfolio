@@ -1,0 +1,45 @@
+---
+import Chip from "./Chip.astro";
+import ProjectItem from "./ProjectItem.astro";
+import ProjectView from "./ProjectView.astro";
+import ExternalLinkIcon from "./icons/ExternalLinkIcon.astro";
+import GoogleAnalyticsIcon from "./icons/GoogleAnalyticsIcon.astro";
+import ReactIcon from "./icons/ReactIcon.astro";
+import ThirdwebIcon from "./icons/ThirdwebIcon.astro";
+---
+
+<ProjectItem>
+  <a
+    target="_blank"
+    rel="noopener noreferrer"
+    href="https://nu-world.vercel.app/"
+    class="flex w-fit justify-start items-center gap-2 text-sky-400 text-2xl font-bold cursor-pointer"
+  >
+    NU World <ExternalLinkIcon color="rgb(56 189 248)" />
+  </a>
+  <p class="text-pretty text-[#d9d9d9] my-2">
+    Landing page sencilla y directa para explorar y adquirir NFTs exclusivos.
+    Presenta las obras de arte digital de manera clara y permite compras
+    directas en la página.
+  </p>
+  <div class="flex justify-start items-center gap-2 flex-wrap">
+    <Chip title="React" class="bg-[#487382]/70 text-[#78D3FA]">
+      <ReactIcon slot="icon" color="#78D3FA" />
+    </Chip>
+    <Chip title="Google Analytics" class="bg-[#ae4a2c]/70 text-[#EEAE3C]">
+      <GoogleAnalyticsIcon slot="icon" />
+    </Chip>
+    <Chip title="Thirdweb" class="bg-[#340E40]/70 text-[#DD35A0]">
+      <ThirdwebIcon slot="icon" color="#78D3FA" />
+    </Chip>
+  </div>
+  <ProjectView>
+    <img
+      src="/projects/NUWD.svg"
+      alt="NUWD"
+      slot="img"
+      class="absolute -bottom-16 transition-transform duration-1000 z-[2] group-hover:translate-y-full"
+    />
+  </ProjectView>
+</ProjectItem>
+

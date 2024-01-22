@@ -1,0 +1,28 @@
+---
+import LinkButton from "./LinkButton.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import WebIcon from "./icons/WebIcon.astro";
+
+const { web, git } = Astro.props;
+---
+
+<div
+  id="container"
+  class="w-full aspect-[1/1] sm:aspect-[16/9] bg-[url('/Card.svg')] group rounded-xl my-4 overflow-hidden flex flex-col justify-center items-center relative"
+>
+  <slot name="img" />
+  <div
+    id="buttons"
+    class="w-full h-full group flex flex-col justify-center items-center gap-8"
+  >
+    <LinkButton href="https://nu-world.vercel.app/" content="Ir al sitio web">
+      <WebIcon slot="icon" />
+    </LinkButton>
+    <LinkButton
+      href="https://github.com/RobertIskandarani/NUWorld"
+      content="Ver código fuente"
+    >
+      <GithubIcon slot="icon" color="white" />
+    </LinkButton>
+  </div>
+</div>
