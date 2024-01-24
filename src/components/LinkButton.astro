@@ -1,26 +1,24 @@
 ---
-const { href, content, class: className } = Astro.props;
+const { href } = Astro.props;
 ---
 
-<a
-  href={href}
-  target="_blank"
-  rel="noopener noreferrer"
-  class={`${className} rounded-full mb-4 hover:bg-[#212121]/90 relative sm:mb-0 text-base font-light px-4 py-2 flex justify-center items-center gap-4 bg-[#212121]`}
->
-  <figure class="w-6 h-6">
-    <slot name="icon" />
-  </figure>
-  {content}
-</a>
-
-<style>
-  @keyframes glowing {
-    from {
-      background-position: 400% 0;
-    }
-    to {
-      background-position: 0 0;
-    }
-  }
-</style>
+<div class="">
+  <span
+    class="relative flex overflow-hidden rounded-full p-[1px] hover:scale-105"
+  >
+    <span
+      class="absolute inset-[-1000%] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_45deg_at_50%_50%,rgba(255,255,255,.5),rgba(255,255,255,0.25),rgba(255,255,255,0),rgba(255,255,255,0.25),rgba(255,255,255,.5))]"
+    ></span>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-[#212121] px-3 py-2 text-sm text-white backdrop-blur-3xl gap-4 whitespace-nowrap"
+    >
+      <figure class="w-6 h-6">
+        <slot name="icon" />
+      </figure>
+      <slot />
+    </a>
+  </span>
+</div>
