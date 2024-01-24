@@ -9,136 +9,162 @@ import ThirdwebIcon from "./icons/ThirdwebIcon.astro";
 import TypescriptIcon from "./icons/TypescriptIcon.astro";
 ---
 
-<ProjectItem>
-  <a
-    target="_blank"
-    rel="noopener noreferrer"
-    href="https://nu-world.vercel.app/"
-    class="flex w-fit justify-start items-center gap-2 text-sky-400 text-lg sm:text-2xl font-bold cursor-pointer"
-  >
-    NU World <ExternalLinkIcon color="rgb(56 189 248)" />
-  </a>
-  <p class="text-balance text-[#d9d9d9] my-2">
-    Web sencilla y directa para explorar y adquirir NFTs exclusivos. Presenta
-    las obras de arte digital de manera clara y permite compras directas en la
-    página.
-  </p>
-  <div class="flex justify-start items-center gap-2 flex-wrap">
-    <Chip title="React" class="bg-[#1E5265] text-[#78D3FA]">
-      <ReactIcon slot="icon" color="#78D3FA" />
-    </Chip>
-    <Chip title="Google Analytics" class="bg-[#531300] text-[#EEAE3C]">
-      <GoogleAnalyticsIcon slot="icon" />
-    </Chip>
-    <Chip title="Thirdweb" class="bg-[#220833] text-[#B32AA7]">
-      <ThirdwebIcon slot="icon" color="#78D3FA" />
-    </Chip>
-  </div>
-  <ProjectView
-    web="https://nu-world.vercel.app/"
-    git="https://github.com/RobertIskandarani/NUWorld"
-  >
-    <img
-      src="/projects/NUWD.svg"
-      alt="NUWD"
-      slot="img"
-      class="flex sm:absolute sm:-bottom-16 transition-transform duration-1000 z-[2] group-hover:translate-y-full"
-    />
-  </ProjectView>
-</ProjectItem>
-<ProjectItem>
-  <a
-    target="_blank"
-    rel="noopener noreferrer"
-    href="https://iomha.vercel.app/"
-    class="flex w-fit justify-start items-center gap-2 text-sky-400 text-lg sm:text-2xl font-bold cursor-pointer"
-  >
-    Iom ha Madrij/a <ExternalLinkIcon color="rgb(56 189 248)" />
-  </a>
-  <p class="text-balance text-[#d9d9d9] my-2">
-    Web de registro para un evento. Esta plataforma permite a los usuarios
-    completar fácilmente sus datos para asistir al evento, y al finalizar,
-    genera automáticamente un PDF personalizado con la información
-    proporcionada.
-  </p>
-  <div class="flex justify-start items-center gap-2 flex-wrap">
-    <Chip title="React" class="bg-[#1E5265] text-[#78D3FA]">
-      <ReactIcon slot="icon" color="#78D3FA" />
-    </Chip>
-    <Chip title="Typescript" class="bg-[#021531] text-[#4182D8]">
-      <TypescriptIcon slot="icon" color="#4182D8" />
-    </Chip>
-  </div>
-  <ProjectView
-    web="https://iomha.vercel.app/"
-    git="https://github.com/RobertIskandarani/Iomha"
-  >
-    <img
-      src="/projects/Iomha.svg"
-      alt="Iom ha madrij/a"
-      slot="img"
-      class="flex sm:absolute sm:-bottom-16 transition-transform duration-1000 z-[2] group-hover:translate-y-full"
-    />
-  </ProjectView>
-</ProjectItem>
-<ProjectItem>
-  <a
-    target="_blank"
-    rel="noopener noreferrer"
-    href="https://100-days-of-css-coral.vercel.app/"
-    class="flex w-fit justify-start items-center gap-2 text-sky-400 text-lg sm:text-2xl font-bold cursor-pointer"
-  >
-    100 Days of CSS <ExternalLinkIcon color="rgb(56 189 248)" />
-  </a>
-  <p class="text-balance text-[#d9d9d9] my-2">
-    Web en donde práctico mi CSS. Tanto las animaciones como las distintas
-    funcionalidades que ofrece CSS. Se trata de un proyecto en constante
-    evolución.
-  </p>
-  <div class="flex justify-start items-center gap-2 flex-wrap">
-    <Chip title="React" class="bg-[#1E5265] text-[#78D3FA]">
-      <ReactIcon slot="icon" color="#78D3FA" />
-    </Chip>
-  </div>
-  <ProjectView
-    web="https://100-days-of-css-coral.vercel.app/"
-    git="https://github.com/RobertIskandarani/100-days-of-css"
-  >
-    <img
-      src="/projects/100-days-css.svg"
-      alt="100 Days of CSS"
-      slot="img"
-      class="flex sm:absolute sm:-bottom-16 transition-transform duration-1000 z-[2] group-hover:translate-y-full"
-    />
-  </ProjectView>
-</ProjectItem>
-<ProjectItem>
-  <a
-    target="_blank"
-    rel="noopener noreferrer"
-    href="https://100-macabeos-dicen.vercel.app/"
-    class="flex w-fit justify-start items-center gap-2 text-sky-400 text-lg sm:text-2xl font-bold cursor-pointer"
-  >
-    100 Macabeos dicen <ExternalLinkIcon color="rgb(56 189 248)" />
-  </a>
-  <p class="text-balance text-[#d9d9d9] my-2">
-    Web para jugar al juego de 100 argentinos dicen personalizado especialmente
-    para un evento del club Macabi.
-  </p>
-  <div class="flex justify-start items-center gap-2 flex-wrap">
-    <Chip title="React" class="bg-[#1E5265] text-[#78D3FA]">
-      <ReactIcon slot="icon" color="#78D3FA" />
-    </Chip>
-  </div>
-  <ProjectView
-    web="https://100-macabeos-dicen.vercel.app/"
-    git="https://github.com/RobertIskandarani/100-macabeos-dicen"
-  >
-    <img
-      src="/projects/100-macabeos-dicen.svg"
-      alt="100 Macabeos dicen"
-      slot="img"
-      class="flex sm:absolute sm:-bottom-16 transition-transform duration-1000 z-[2] sm:group-hover:translate-y-full"
-    />
-  </ProjectView>
-</ProjectItem>
+<div class="flex flex-col">
+  <ProjectItem>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://nu-world.vercel.app/"
+      class="flex w-fit justify-start items-center gap-2 text-sky-400 text-lg sm:text-2xl font-bold cursor-pointer"
+    >
+      NU World <ExternalLinkIcon color="rgb(56 189 248)" />
+    </a>
+    <p class="text-balance text-[#d9d9d9] my-2">
+      Web sencilla y directa para explorar y adquirir NFTs exclusivos. Presenta
+      las obras de arte digital de manera clara y permite compras directas en la
+      página.
+    </p>
+    <div class="flex justify-start items-center gap-2 flex-wrap">
+      <Chip title="React" class="bg-[#1E5265] text-[#78D3FA]">
+        <ReactIcon slot="icon" color="#78D3FA" />
+      </Chip>
+      <Chip title="Google Analytics" class="bg-[#531300] text-[#EEAE3C]">
+        <GoogleAnalyticsIcon slot="icon" />
+      </Chip>
+      <Chip title="Thirdweb" class="bg-[#220833] text-[#B32AA7]">
+        <ThirdwebIcon slot="icon" color="#78D3FA" />
+      </Chip>
+    </div>
+    <ProjectView
+      web="https://nu-world.vercel.app/"
+      git="https://github.com/RobertIskandarani/NUWorld"
+    >
+      <img
+        src="/projects/NUWD.svg"
+        alt="NUWD"
+        slot="img"
+        class="hidden sm:flex sm:absolute sm:-bottom-16 transition-transform duration-1000 z-[2] group-hover:translate-y-full"
+      />
+      <img
+        src="/projects/NUWD.svg"
+        alt="NUWD"
+        slot="img"
+        class="flex sm:hidden"
+      />
+    </ProjectView>
+  </ProjectItem>
+  <ProjectItem>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://iomha.vercel.app/"
+      class="flex w-fit justify-start items-center gap-2 text-sky-400 text-lg sm:text-2xl font-bold cursor-pointer"
+    >
+      Iom ha Madrij/a <ExternalLinkIcon color="rgb(56 189 248)" />
+    </a>
+    <p class="text-balance text-[#d9d9d9] my-2">
+      Web de registro para un evento. Esta plataforma permite a los usuarios
+      completar fácilmente sus datos para asistir al evento, y al finalizar,
+      genera automáticamente un PDF personalizado con la información
+      proporcionada.
+    </p>
+    <div class="flex justify-start items-center gap-2 flex-wrap">
+      <Chip title="React" class="bg-[#1E5265] text-[#78D3FA]">
+        <ReactIcon slot="icon" color="#78D3FA" />
+      </Chip>
+      <Chip title="Typescript" class="bg-[#021531] text-[#4182D8]">
+        <TypescriptIcon slot="icon" color="#4182D8" />
+      </Chip>
+    </div>
+    <ProjectView
+      web="https://iomha.vercel.app/"
+      git="https://github.com/RobertIskandarani/Iomha"
+    >
+      <img
+        src="/projects/Iomha.svg"
+        alt="Iom ha madrij/a"
+        slot="img"
+        class="hidden sm:flex sm:absolute sm:-bottom-16 transition-transform duration-1000 z-[2] group-hover:translate-y-full"
+      />
+      <img
+        src="/projects/Iomha.svg"
+        alt="Iom ha madrij/a"
+        slot="img"
+        class="flex sm:hidden"
+      />
+    </ProjectView>
+  </ProjectItem>
+  <ProjectItem>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://100-days-of-css-coral.vercel.app/"
+      class="flex w-fit justify-start items-center gap-2 text-sky-400 text-lg sm:text-2xl font-bold cursor-pointer"
+    >
+      100 Days of CSS <ExternalLinkIcon color="rgb(56 189 248)" />
+    </a>
+    <p class="text-balance text-[#d9d9d9] my-2">
+      Web en donde práctico mi CSS. Tanto las animaciones como las distintas
+      funcionalidades que ofrece CSS. Se trata de un proyecto en constante
+      evolución.
+    </p>
+    <div class="flex justify-start items-center gap-2 flex-wrap">
+      <Chip title="React" class="bg-[#1E5265] text-[#78D3FA]">
+        <ReactIcon slot="icon" color="#78D3FA" />
+      </Chip>
+    </div>
+    <ProjectView
+      web="https://100-days-of-css-coral.vercel.app/"
+      git="https://github.com/RobertIskandarani/100-days-of-css"
+    >
+      <img
+        src="/projects/100-days-css.svg"
+        alt="100 Days of CSS"
+        slot="img"
+        class="hidden sm:flex sm:absolute sm:-bottom-16 transition-transform duration-1000 z-[2] group-hover:translate-y-full"
+      />
+      <img
+        src="/projects/100-days-css.svg"
+        alt="100 Days of CSS"
+        slot="img"
+        class="flex sm:hidden"
+      />
+    </ProjectView>
+  </ProjectItem>
+  <ProjectItem>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://100-macabeos-dicen.vercel.app/"
+      class="flex w-fit justify-start items-center gap-2 text-sky-400 text-lg sm:text-2xl font-bold cursor-pointer"
+    >
+      100 Macabeos dicen <ExternalLinkIcon color="rgb(56 189 248)" />
+    </a>
+    <p class="text-balance text-[#d9d9d9] my-2">
+      Web para jugar al juego de 100 argentinos dicen personalizado
+      especialmente para un evento del club Macabi.
+    </p>
+    <div class="flex justify-start items-center gap-2 flex-wrap">
+      <Chip title="React" class="bg-[#1E5265] text-[#78D3FA]">
+        <ReactIcon slot="icon" color="#78D3FA" />
+      </Chip>
+    </div>
+    <ProjectView
+      web="https://100-macabeos-dicen.vercel.app/"
+      git="https://github.com/RobertIskandarani/100-macabeos-dicen"
+    >
+      <img
+        src="/projects/100-macabeos-dicen.svg"
+        alt="100 Macabeos dicen"
+        slot="img"
+        class="hidden sm:flex sm:absolute sm:-bottom-16 transition-transform duration-1000 z-[2] group-hover:translate-y-full"
+      />
+      <img
+        src="/projects/100-macabeos-dicen.svg"
+        alt="100 Macabeos dicen"
+        slot="img"
+        class="flex sm:hidden"
+      />
+    </ProjectView>
+  </ProjectItem>
+</div>
