@@ -1,8 +1,28 @@
 ---
 import NavLinkButton from "./NavLinkButton.astro";
+
+const navItems = [
+  {
+    title: "Experiencia",
+    label: "experiencia",
+    url: "/#experiencia",
+  },
+  {
+    title: "Proyectos",
+    label: "proyectos",
+    url: "/#proyectos",
+  },
+  {
+    title: "Tecnologías",
+    label: "tecnologias",
+    url: "/#tecnologias",
+  },
+];
 ---
 
-<header class="w-full fixed top-0 py-5 flex justify-center z-10">
+<header
+  class="w-full fixed top-0 py-5 flex justify-center z-10 animate-[enhance-header_linear_both]"
+>
   <nav class="relative p-[1px] overflow-hidden rounded-3xl">
     <span
       class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_45deg_at_50%_50%,rgba(255,255,255,.5),rgba(255,255,255,0.25),rgba(255,255,255,0),rgba(255,255,255,0.25),rgba(255,255,255,.5))]"
@@ -10,9 +30,60 @@ import NavLinkButton from "./NavLinkButton.astro";
     <ul
       class="flex text-white gap-2 bg-[#070707] rounded-3xl py-1 px-2 sm:px-3 relative"
     >
-      <NavLinkButton href="#Experiencia" title="Experiencia" />
-      <NavLinkButton href="#Proyectos" title="Proyectos" />
-      <NavLinkButton href="#Tecnologias" title="Tecnologías" />
+      {
+        navItems.map((link) => (
+          <NavLinkButton
+            href={link.url}
+            label={link.label}
+            title={link.title}
+          />
+        ))
+      }
     </ul>
   </nav>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("header nav ul li");
+
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("bg-[#212121]");
+            } else {
+              item.classList.remove("bg-[#212121]");
+            }
+          });
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    });
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>
+
+<style>
+  header {
+    animation-timeline: scroll(root);
+    animation-range: 50vh 100vh;
+  }
+
+  @keyframes enhance-header {
+    to {
+      background-color: rgba(7, 7, 7, 0.4);
+      backdrop-filter: blur(5px);
+    }
+  }
+</style>

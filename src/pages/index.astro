@@ -14,13 +14,16 @@ import ProjectsBackground from "@/components/ProjectsBackground.astro";
 
 <Layout title="Portfolio - Robert Iskandarani">
   <main class="w-full flex flex-col items-center">
-    <SectionContainer class="flex h-dvh justify-center items-center relative">
+    <SectionContainer
+      id="#"
+      class="flex h-dvh justify-center items-center relative"
+    >
       <Card />
       <ScrollIcon class="block absolute bottom-3 animate-bounce" />
     </SectionContainer>
 
     <SectionContainer
-      id="Experiencia"
+      id="experiencia"
       class="flex min-h-dvh justify-center items-center relative my-16"
     >
       <div class="w-11/12 sm:w-2/3 flex-col justify-center items-start">
@@ -38,8 +41,8 @@ import ProjectsBackground from "@/components/ProjectsBackground.astro";
     </SectionContainer>
 
     <SectionContainer
-      id="Proyectos"
-      class="min-h-dvh flex flex-col justify-center items-center relative"
+      id="proyectos"
+      class="flex min-h-dvh flex-col justify-center items-center relative my-16"
     >
       <div class="w-11/12 sm:w-2/3 flex-col justify-center items-start">
         <SectionTitle>Mis Proyectos</SectionTitle>
@@ -50,7 +53,7 @@ import ProjectsBackground from "@/components/ProjectsBackground.astro";
     </SectionContainer>
 
     <SectionContainer
-      id="Tecnologias"
+      id="tecnologias"
       class="flex min-h-dvh justify-center items-center relative my-16"
     >
       <Orbit />
