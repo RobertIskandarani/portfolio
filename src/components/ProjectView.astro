@@ -8,12 +8,12 @@ const { web, git } = Astro.props;
 
 <div
   id="container"
-  class="w-full aspect-[1/1] sm:aspect-[15/9] bg-[url('/Card.svg')] group rounded-xl my-4 overflow-hidden flex flex-col justify-center items-center relative"
+  class="w-full aspect-[9/12] gap-4 sm:gap-0 sm:aspect-[15/9] bg-[url('/Card.svg')] group rounded-xl my-4 overflow-hidden flex flex-col justify-center items-center relative"
 >
   <slot name="img" />
   <div
     id="buttons"
-    class="w-full h-full group flex flex-col justify-center items-center gap-8"
+    class="w-full group flex flex-col justify-center items-center gap-4 sm:gap-8"
   >
     <LinkButton href={web}>
       <WebIcon slot="icon" />
