@@ -2,14 +2,12 @@
 interface Props {
   href: string;
   title: string;
-  label: string;
 }
 
-const { href, title, label } = Astro.props;
+const { href, title } = Astro.props;
 ---
 
 <li
-  aria-label={label}
   class="px-2 sm:px-3 transition-all duration-300 text-xs sm:text-base group cursor-pointer rounded-xl hover:bg-[#212121]"
 >
   <a href={href}>{title}</a>

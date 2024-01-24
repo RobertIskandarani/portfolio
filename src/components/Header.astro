@@ -4,17 +4,14 @@ import NavLinkButton from "./NavLinkButton.astro";
 const navItems = [
   {
     title: "Experiencia",
-    label: "experiencia",
     url: "/#experiencia",
   },
   {
     title: "Proyectos",
-    label: "proyectos",
     url: "/#proyectos",
   },
   {
     title: "Tecnologías",
-    label: "tecnologias",
     url: "/#tecnologias",
   },
 ];
@@ -32,47 +29,12 @@ const navItems = [
     >
       {
         navItems.map((link) => (
-          <NavLinkButton
-            href={link.url}
-            label={link.label}
-            title={link.title}
-          />
+          <NavLinkButton href={link.url} title={link.title} />
         ))
       }
     </ul>
   </nav>
 </header>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("header nav ul li");
-
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("bg-[#212121]");
-            } else {
-              item.classList.remove("bg-[#212121]");
-            }
-          });
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    });
-
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-  });
-</script>
 
 <style>
   header {
