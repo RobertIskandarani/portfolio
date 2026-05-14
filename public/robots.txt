@@ -1,7 +1,12 @@
 # Portfolio de Robert Iskandarani — robots.txt
 # Agent-Ready: allowlist explícito de bots IA
 
+# Content Signals — https://contentsignals.org/
+# Preferencias de uso del contenido por agentes IA
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
 User-agent: *
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 
 # === AI search & referencing en tiempo real ===

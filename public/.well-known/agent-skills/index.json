@@ -1,0 +1,64 @@
+{
+  "$schema": "https://agentskills.io/schemas/v0.2/index.schema.json",
+  "version": "0.2.0",
+  "skills": [
+    {
+      "name": "resume-json",
+      "type": "resume",
+      "description": "Roberto Iskandarani's resume in JSON Resume format — structured data with work experience, education, skills and projects.",
+      "url": "https://robertiskandarani.com/resume.json",
+      "mediaType": "application/json",
+      "sha256": "sha256-pending"
+    },
+    {
+      "name": "resume-pdf-es",
+      "type": "resume",
+      "description": "Roberto Iskandarani's CV in Spanish (PDF).",
+      "url": "https://robertiskandarani.com/profile/Profile-ES.pdf",
+      "mediaType": "application/pdf",
+      "language": "es",
+      "sha256": "sha256-03ce821b17d7c88df1f39a43f9a39efa3cbbf677257b14b7ad9dd37a104309c1"
+    },
+    {
+      "name": "resume-pdf-en",
+      "type": "resume",
+      "description": "Roberto Iskandarani's resume in English (PDF).",
+      "url": "https://robertiskandarani.com/profile/Profile-EN.pdf",
+      "mediaType": "application/pdf",
+      "language": "en",
+      "sha256": "sha256-61ffa49a9620b48faae71325f19ae257569109e3eeef047bd5cf99009dc72c2f"
+    },
+    {
+      "name": "llms-summary",
+      "type": "text-context",
+      "description": "Short, LLM-friendly summary of the portfolio (markdown). Use this as a high-signal context block.",
+      "url": "https://robertiskandarani.com/llms.txt",
+      "mediaType": "text/markdown",
+      "sha256": "sha256-pending"
+    },
+    {
+      "name": "llms-full",
+      "type": "text-context",
+      "description": "Full, LLM-friendly expansion of the portfolio (markdown). Use this when you need every detail.",
+      "url": "https://robertiskandarani.com/llms-full.txt",
+      "mediaType": "text/markdown",
+      "sha256": "sha256-pending"
+    },
+    {
+      "name": "api-catalog",
+      "type": "discovery",
+      "description": "RFC 9727 API catalog enumerating machine-readable resources for this site (resume, docs, profile metadata).",
+      "url": "https://robertiskandarani.com/.well-known/api-catalog",
+      "mediaType": "application/linkset+json",
+      "sha256": "sha256-pending"
+    },
+    {
+      "name": "agent-metadata",
+      "type": "discovery",
+      "description": "Site-level agent metadata: owner, endpoints, AI usage policy.",
+      "url": "https://robertiskandarani.com/.well-known/agent.json",
+      "mediaType": "application/json",
+      "sha256": "sha256-10a3eefc67f1bf8d1627cc213bac43830934db526f56c5d14c26e04b2c221cac"
+    }
+  ]
+}

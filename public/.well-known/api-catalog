@@ -1,0 +1,57 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://robertiskandarani.com/",
+      "service-desc": [
+        {
+          "href": "https://robertiskandarani.com/resume.json",
+          "type": "application/json",
+          "title": "JSON Resume"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://robertiskandarani.com/llms.txt",
+          "type": "text/plain",
+          "title": "LLMs.txt — resumen del sitio"
+        },
+        {
+          "href": "https://robertiskandarani.com/llms-full.txt",
+          "type": "text/plain",
+          "title": "LLMs-full.txt — versión expandida"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://robertiskandarani.com/.well-known/agent.json",
+          "type": "application/json",
+          "title": "Agent metadata"
+        }
+      ],
+      "author": [
+        {
+          "href": "https://robertiskandarani.com/profile/Profile-ES.pdf",
+          "type": "application/pdf",
+          "title": "CV (ES)",
+          "hreflang": "es"
+        },
+        {
+          "href": "https://robertiskandarani.com/profile/Profile-EN.pdf",
+          "type": "application/pdf",
+          "title": "CV (EN)",
+          "hreflang": "en"
+        }
+      ],
+      "alternate": [
+        {
+          "href": "https://www.linkedin.com/in/robertiskandarani/",
+          "title": "LinkedIn"
+        },
+        {
+          "href": "https://github.com/RobertIskandarani",
+          "title": "GitHub"
+        }
+      ]
+    }
+  ]
+}
