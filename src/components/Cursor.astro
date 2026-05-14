@@ -1,0 +1,123 @@
+<div id='cursor-ring' aria-hidden='true'></div>
+
+<style>
+  #cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 9999px;
+    background-color: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    width: 32px;
+    height: 32px;
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+    will-change: transform, width, height, background-color;
+    transition:
+      width 0.25s ease,
+      height 0.25s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  :global(body.cursor-hover) #cursor-ring {
+    width: 56px;
+    height: 56px;
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+
+  :global(body.cursor-on-image) #cursor-ring {
+    width: 56px;
+    height: 56px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+  }
+
+  :global(body.cursor-down) #cursor-ring {
+    width: 24px;
+    height: 24px;
+  }
+
+  :global(body.cursor-hidden) #cursor-ring {
+    opacity: 0;
+  }
+
+  @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+    #cursor-ring {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  const isFinePointer =
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (isFinePointer) {
+    const ring = document.getElementById("cursor-ring");
+
+    if (ring) {
+      const mouse = { x: -100, y: -100 };
+      const ringPos = { x: -100, y: -100 };
+      const lerp = 0.55;
+      let initialized = false;
+
+      const onMove = (event: MouseEvent) => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+        if (!initialized) {
+          ringPos.x = event.clientX;
+          ringPos.y = event.clientY;
+          initialized = true;
+        }
+      };
+
+      const onEnterDocument = () => document.body.classList.remove("cursor-hidden");
+      const onLeaveDocument = () => document.body.classList.add("cursor-hidden");
+      const onDown = () => document.body.classList.add("cursor-down");
+      const onUp = () => document.body.classList.remove("cursor-down");
+
+      window.addEventListener("mousemove", onMove, { passive: true });
+      document.addEventListener("mouseenter", onEnterDocument);
+      document.addEventListener("mouseleave", onLeaveDocument);
+      window.addEventListener("mousedown", onDown);
+      window.addEventListener("mouseup", onUp);
+
+      const interactiveSelector =
+        'a, button, [role="button"], input, textarea, select, label, summary, .chip, #ticket, [data-cursor="hover"]';
+      const imageSelector = 'img, [data-cursor="image"]';
+
+      let hoveredInteractive: Element | null = null;
+      let hoveredImage: Element | null = null;
+
+      window.addEventListener(
+        "mouseover",
+        (event) => {
+          const target = event.target as Element | null;
+          const interactive = target?.closest?.(interactiveSelector) ?? null;
+          const image = target?.closest?.(imageSelector) ?? null;
+          if (interactive !== hoveredInteractive) {
+            hoveredInteractive = interactive;
+            document.body.classList.toggle("cursor-hover", Boolean(interactive));
+          }
+          if (image !== hoveredImage) {
+            hoveredImage = image;
+            document.body.classList.toggle("cursor-on-image", Boolean(image));
+          }
+        },
+        { passive: true }
+      );
+
+      const animate = () => {
+        ringPos.x += (mouse.x - ringPos.x) * lerp;
+        ringPos.y += (mouse.y - ringPos.y) * lerp;
+        ring.style.transform = `translate3d(${ringPos.x}px, ${ringPos.y}px, 0) translate(-50%, -50%)`;
+        requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    }
+  }
+</script>

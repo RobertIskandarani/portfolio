@@ -1,42 +1,52 @@
+---
+import L from "./L.astro";
+---
+
 <article
-  id="card-container"
-  class="[perspective:1000px] w-11/12 sm:w-3/5 flex justify-center"
+  id='card-container'
+  class='[perspective:1000px] w-11/12 sm:w-3/5 flex justify-center'
 >
   <div
-    id="ticket"
-    class="w-full aspect-[8/13] max-h-[500px] max-w-[750px] sm:aspect-[16/9] rounded-2xl relative drop-shadow-[0px 5px 15px rgba(0, 0, 0, 0.12)] overflow-hidden"
+    id='ticket'
+    class='w-full aspect-[8/13] max-h-[500px] max-w-[750px] sm:aspect-[16/9] rounded-2xl relative drop-shadow-[0px_5px_15px_rgba(0,0,0,0.12)] overflow-hidden'
   >
+    <div id='ticket-lantern' aria-hidden='true'></div>
     <div
-      class="w-full h-full flex flex-col sm:flex-row justify-start items-start sm:items-end gap-2 sm:gap-8 p-4"
+      class='w-full h-full flex flex-col sm:flex-row justify-start items-start sm:items-end gap-2 sm:gap-8 p-4 relative'
     >
       <div
-        id="title-container"
-        class="w-11/12 sm:w-3/4 sm:h-full flex flex-col justify-center items-start sm:px-8 py-1 sm:py-0 gap-2"
+        id='title-container'
+        class='w-11/12 sm:w-3/4 sm:h-full flex flex-col justify-center items-start sm:px-8 py-1 sm:py-0 gap-2'
       >
         <h1
-          class="transition-all duration-300 text-white text-4xl sm:text-3xl md:text-5xl lg:text-7xl font-bold text-balance uppercase"
+          class='transition-all duration-300 text-white text-3xl sm:text-3xl md:text-5xl lg:text-7xl font-bold text-balance uppercase leading-tight'
         >
-          Hola, soy Robert!
+          <L es='Hola, soy Robert!' en="Hi, I'm Robert!" />
         </h1>
         <h2
-          class="transition-all duration-300 text-white/80 text-md md:text-lg lg:text-xl uppercase w-full"
+          class='transition-all duration-300 text-white/80 text-xs sm:text-md md:text-lg lg:text-xl uppercase w-full'
         >
-          <span class="text-sky-400">Ingeniero Informático</span>
+          <span class='text-sky-400'>
+            <L es='Ingeniero Informático' en='Computer Engineer' />
+          </span>
           <br />
            FullStack Developer
         </h2>
       </div>
 
       <img
-        id="profile-img"
-        src="/profile/profile.webp"
-        alt="Profile"
-        class="h-3/5 sm:h-[110%] sm:w-auto block absolute bottom-0 left-0 sm:right-0 sm:left-auto sm:-bottom-4"
+        id='profile-img'
+        src='/profile/profile.webp'
+        alt='Foto de Robert Iskandarani'
+        loading='eager'
+        decoding='async'
+        class='h-3/5 sm:h-[110%] sm:w-auto block absolute bottom-0 left-0 sm:right-0 sm:left-auto sm:-bottom-4'
       />
     </div>
+    <div id='ticket-glare' aria-hidden='true'></div>
     <div
-      id="bg"
-      class="absolute inset-0 w-full h-full bg-[#070707]/60 rounded-2xl -z-50 backdrop-blur-[1px]"
+      id='bg'
+      class='absolute inset-0 w-full h-full bg-[#070707]/60 rounded-2xl -z-50 backdrop-blur-[1px]'
     >
     </div>
   </div>
@@ -44,21 +54,74 @@
 
 <style>
   #ticket {
-    transition:
-      transform 0.5s ease-in-out,
-      scale 0.5s ease-in-out;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-style: preserve-3d;
   }
 
   #ticket:hover {
-    transition: scale 0.5s ease-in-out;
-    scale: 1.1;
+    transition:
+      scale 0.5s ease-in-out,
+      transform 0.1s linear;
+    scale: 1.04;
   }
 
-  #profile-container,
-  #title-container,
+  #ticket-glare {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    border-radius: inherit;
+    background: radial-gradient(
+      circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0) 40%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  #card-container:hover #ticket-glare {
+    opacity: 1;
+  }
+
+  #ticket-lantern {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -10;
+    border-radius: inherit;
+    background: radial-gradient(
+      420px circle at var(--mx, 80%) var(--my, 50%),
+      rgba(56, 189, 248, 0.55),
+      rgba(129, 140, 248, 0.25) 35%,
+      rgba(0, 0, 0, 0) 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    filter: blur(8px);
+  }
+
+  #card-container:hover #ticket-lantern {
+    opacity: 1;
+  }
+
+  #title-container {
+    position: relative;
+    z-index: 1;
+  }
+
   #profile-img {
     z-index: -1;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ticket {
+      transition: none !important;
+    }
+    #ticket:hover {
+      scale: 1;
+    }
+  }
 </style>
 
-<script src="../scripts/card.js"></script>
+<script src='../scripts/card.js'></script>

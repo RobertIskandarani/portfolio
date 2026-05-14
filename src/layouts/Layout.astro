@@ -1,31 +1,165 @@
 ---
+import "@/styles/global.css";
+import Cursor from "@/components/Cursor.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import StarsBackground from "@/components/StarsBackground.astro";
 import TopButton from "@/components/TopButton.astro";
+import { profile, experiences, projects, SITE_URL } from "@/data/profile";
+
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = profile.description,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, SITE_URL).toString();
+const ogImage = `${SITE_URL}/og-image.svg`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: profile.name,
+      givenName: profile.givenName,
+      familyName: profile.familyName,
+      jobTitle: profile.jobTitle,
+      description: profile.description,
+      url: SITE_URL,
+      image: profile.image,
+      sameAs: [profile.linkedin, profile.github],
+      knowsAbout: [...profile.knowsAbout],
+      worksFor: experiences
+        .filter((exp) => exp.end === "Actualidad")
+        .map((exp) => ({
+          "@type": "Organization",
+          name: exp.company,
+          ...(exp.url ? { url: exp.url } : {}),
+        })),
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: `Portfolio de ${profile.name}`,
+      description: profile.description,
+      inLanguage: "es-AR",
+      publisher: { "@id": `${SITE_URL}/#person` },
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/#profilepage`,
+      url: SITE_URL,
+      name: title,
+      description,
+      inLanguage: "es-AR",
+      mainEntity: { "@id": `${SITE_URL}/#person` },
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+    },
+    ...experiences.map((exp, index) => ({
+      "@type": "OrganizationRole",
+      "@id": `${SITE_URL}/#role-${index}`,
+      roleName: exp.role,
+      startDate: exp.startISO,
+      ...(exp.endISO ? { endDate: exp.endISO } : {}),
+      member: { "@id": `${SITE_URL}/#person` },
+      memberOf: {
+        "@type": "Organization",
+        name: exp.company,
+        ...(exp.url ? { url: exp.url } : {}),
+      },
+      description: exp.description,
+    })),
+    ...projects.map((project) => ({
+      "@type": "SoftwareSourceCode",
+      "@id": `${SITE_URL}/#project-${project.slug}`,
+      name: project.name,
+      description: project.description,
+      url: project.url,
+      ...(project.repo ? { codeRepository: project.repo } : {}),
+      programmingLanguage: project.tech.map((t) => t.name),
+      author: { "@id": `${SITE_URL}/#person` },
+    })),
+  ],
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang='es'>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Portfolio de Roberto Iskandarani" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
+    <meta name='description' content={description} />
+    <meta name='author' content={profile.name} />
+    <meta
+      name='keywords'
+      content='Robert Iskandarani, FullStack Developer, COO, Yuppie, React, Astro, TypeScript, Node.js, AI, OpenAI, Anthropic Claude, portfolio'
+    />
+    <link rel='canonical' href={canonical} />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link
+      rel='alternate'
+      type='application/json'
+      title='JSON Resume'
+      href='/resume.json'
+    />
+
+    <meta property='og:type' content='profile' />
+    <meta property='og:site_name' content={`Portfolio de ${profile.name}`} />
+    <meta property='og:locale' content='es_AR' />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
+    <meta property='og:url' content={canonical} />
+    <meta property='og:image' content={ogImage} />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='630' />
+    <meta property='profile:first_name' content={profile.givenName} />
+    <meta property='profile:last_name' content={profile.familyName} />
+
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content={title} />
+    <meta name='twitter:description' content={description} />
+    <meta name='twitter:image' content={ogImage} />
+
+    <link rel='me' href={profile.linkedin} />
+    <link rel='me' href={profile.github} />
+
+    <script
+      is:inline
+      type='application/ld+json'
+      set:html={JSON.stringify(jsonLd)}
+    />
+
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem("lang");
+          if (stored === "en" || stored === "es") {
+            document.documentElement.lang = stored;
+          }
+        } catch {}
+      })();
+    </script>
   </head>
-  <body class="text-black dark:text-white">
+  <body class='text-black dark:text-white'>
     <Header />
     <slot />
     <Footer />
     <StarsBackground />
     <TopButton />
+    <Cursor />
+    <script>
+      import "../scripts/scroll-reveal.js";
+      import "../scripts/magnetic.js";
+    </script>
   </body>
 </html>
 <style is:global>
@@ -62,9 +196,59 @@ const { title } = Astro.props;
     overflow: hidden;
   }
 
+  html[lang="es"] [data-lang="en"],
+  html[lang="en"] [data-lang="es"] {
+    display: none;
+  }
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+    will-change: opacity, transform;
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    html,
+    body,
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    label,
+    summary,
+    [data-cursor="hover"],
+    .chip,
+    #ticket {
+      cursor: none;
+    }
+  }
+
+  @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+    html,
+    body,
+    a,
+    button {
+      cursor: auto;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
+    }
+    [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
   }
 

@@ -1,39 +1,60 @@
 ---
 import NavLinkButton from "./NavLinkButton.astro";
+import LangToggle from "./LangToggle.astro";
 
 const navItems = [
   {
-    title: "Experiencia",
+    es: "Experiencia",
+    en: "Experience",
+    esShort: "Exp",
+    enShort: "Exp",
     url: "/#experiencia",
   },
   {
-    title: "Proyectos",
+    es: "Proyectos",
+    en: "Projects",
+    esShort: "Proyectos",
+    enShort: "Projects",
     url: "/#proyectos",
   },
   {
-    title: "Tecnologías",
+    es: "Tecnologías",
+    en: "Technologies",
+    esShort: "Tec",
+    enShort: "Tech",
     url: "/#tecnologias",
   },
 ];
 ---
 
 <header
-  class="w-full fixed top-0 py-5 flex justify-center z-10 animate-[enhance-header_linear_both]"
+  class='w-full fixed top-0 py-3 sm:py-5 px-3 sm:px-6 flex justify-center items-center gap-2 sm:gap-4 z-10 animate-[enhance-header_linear_both]'
 >
-  <nav class="relative p-[1px] overflow-hidden rounded-3xl">
+  <nav
+    aria-label='Navegación principal'
+    class='relative p-[1px] overflow-hidden rounded-3xl'
+  >
     <span
-      class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_45deg_at_50%_50%,rgba(255,255,255,.5),rgba(255,255,255,0.25),rgba(255,255,255,0),rgba(255,255,255,0.25),rgba(255,255,255,.5))]"
+      class='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_45deg_at_50%_50%,rgba(255,255,255,.5),rgba(255,255,255,0.25),rgba(255,255,255,0),rgba(255,255,255,0.25),rgba(255,255,255,.5))]'
     ></span>
     <ul
-      class="flex text-white gap-2 bg-[#070707] rounded-3xl py-1 px-2 sm:px-3 relative"
+      class='flex text-white gap-1 sm:gap-2 bg-[#070707] rounded-3xl py-1 px-1.5 sm:px-3 relative'
     >
       {
         navItems.map((link) => (
-          <NavLinkButton href={link.url} title={link.title} />
+          <NavLinkButton
+            href={link.url}
+            es={link.es}
+            en={link.en}
+            esShort={link.esShort}
+            enShort={link.enShort}
+          />
         ))
       }
     </ul>
   </nav>
+  <LangToggle />
+  <div id='scroll-progress' aria-hidden='true'></div>
 </header>
 
 <style>
@@ -46,6 +67,32 @@ const navItems = [
     to {
       background-color: rgba(7, 7, 7, 0.4);
       backdrop-filter: blur(5px);
+    }
+  }
+
+  #scroll-progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, #38bdf8, #818cf8, #f472b6);
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes scroll-progress {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #scroll-progress {
+      animation: none;
+      transform: scaleX(0);
     }
   }
 </style>

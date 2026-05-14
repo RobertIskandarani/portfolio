@@ -16,114 +16,141 @@ import JavascriptIcon from "@/components/icons/JavascriptIcon.astro";
 import TypescriptIcon from "@/components/icons/TypescriptIcon.astro";
 import TailwindIcon from "@/components/icons/TailwindIcon.astro";
 import AstroIcon from "@/components/icons/AstroIcon.astro";
+import OpenAIIcon from "@/components/icons/OpenAIIcon.astro";
+import ClaudeIcon from "@/components/icons/ClaudeIcon.astro";
 ---
 
-<article
-  id="orbit"
-  class="rounded-full border border-transparent flex justify-center items-center w-2/3 min-w-[600px] aspect-square relative"
->
+<div class='flex flex-col items-center w-full'>
+  <article
+    id='orbit-root'
+    class='orbit rounded-full border border-transparent flex justify-center items-center w-[92vw] sm:w-2/3 max-w-[720px] aspect-square relative mx-auto'
+  >
   <Planet
-    class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-2-2_15s_linear_infinite_reverse]"
+    name='React'
+    class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-2-2_15s_linear_infinite_reverse]'
   >
     <ReactIcon />
   </Planet>
   <Planet
-    class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-2-1_15s_linear_infinite_reverse]"
+    name='Astro'
+    class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-2-1_15s_linear_infinite_reverse]'
   >
     <AstroIcon />
   </Planet>
   <div
-    id="orbit"
-    class="rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative"
+    class='orbit rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative'
   >
     <Planet
-      class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_25s_linear_infinite]"
+      name='HTML5'
+      class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_25s_linear_infinite]'
     >
       <HTML5Icon />
     </Planet>
     <Planet
-      class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_25s_linear_infinite]"
+      name='CSS'
+      class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_25s_linear_infinite]'
     >
       <CSSIcon />
     </Planet>
     <Planet
-      class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_25s_linear_infinite]"
+      name='Tailwind'
+      class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_25s_linear_infinite]'
     >
       <TailwindIcon />
     </Planet>
     <div
-      id="orbit"
-      class="rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative"
+      class='orbit rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative'
     >
       <Planet
-        class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_20s_linear_infinite_reverse]"
+        name='Node.js'
+        class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_20s_linear_infinite_reverse]'
       >
         <NodeJSIcon />
       </Planet>
       <Planet
-        class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_20s_linear_infinite_reverse]"
+        name='JavaScript'
+        class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_20s_linear_infinite_reverse]'
       >
         <JavascriptIcon />
       </Planet>
       <Planet
-        class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_20s_linear_infinite_reverse]"
+        name='TypeScript'
+        class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_20s_linear_infinite_reverse]'
       >
         <TypescriptIcon />
       </Planet>
       <div
-        id="orbit"
-        class="rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative"
+        class='orbit rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative'
       >
         <Planet
-          class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_30s_linear_infinite]"
+          name='Git'
+          class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_30s_linear_infinite]'
         >
           <GitIcon />
         </Planet>
         <Planet
-          class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_30s_linear_infinite]"
+          name='GitHub'
+          class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_30s_linear_infinite]'
         >
-          <GithubIcon color="black" />
+          <GithubIcon color='black' />
         </Planet>
         <Planet
-          class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_30s_linear_infinite]"
+          name='GitLab'
+          class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_30s_linear_infinite]'
         >
           <GitlabIcon />
         </Planet>
         <div
-          id="orbit"
-          class="rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative"
+          class='orbit rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative'
         >
           <Planet
-            class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_30s_linear_infinite_reverse]"
+            name='Figma'
+            class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-3_30s_linear_infinite_reverse]'
           >
             <FigmaIcon />
           </Planet>
           <Planet
-            class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_30s_linear_infinite_reverse]"
+            name='Photoshop'
+            class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-2_30s_linear_infinite_reverse]'
           >
             <PhotoshopIcon />
           </Planet>
           <Planet
-            class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_30s_linear_infinite_reverse]"
+            name='Postman'
+            class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-3-1_30s_linear_infinite_reverse]'
           >
             <PostmanIcon />
           </Planet>
           <div
-            id="orbit"
-            class="rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative"
+            class='orbit rounded-full border border-transparent flex justify-center items-center w-4/5 aspect-square relative'
           >
             <Planet
-              class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-2-2_15s_linear_infinite]"
+              name='Python'
+              class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-4-1_22s_linear_infinite_reverse]'
             >
               <PythonIcon />
             </Planet>
             <Planet
-              class="animate-[planet_3s_ease-in-out_infinite_alternate,orbit-2-1_15s_linear_infinite]"
+              name='OpenAI'
+              class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-4-2_22s_linear_infinite_reverse]'
+            >
+              <OpenAIIcon />
+            </Planet>
+            <Planet
+              name='Claude'
+              class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-4-3_22s_linear_infinite_reverse]'
+            >
+              <ClaudeIcon />
+            </Planet>
+            <Planet
+              name='MongoDB'
+              class='animate-[planet_3s_ease-in-out_infinite_alternate,orbit-4-4_22s_linear_infinite_reverse]'
             >
               <MongoDBIcon />
             </Planet>
             <span
-              id="profile2"
+              id='profile2'
+              data-cursor='image'
               class="w-3/4 h-4/5 bg-[url('/profile/profile2.webp')] flex justify-center items-end rounded-b-full bg-no-repeat bg-center bg-[length:auto_135%] relative"
             ></span>
           </div>
@@ -131,7 +158,40 @@ import AstroIcon from "@/components/icons/AstroIcon.astro";
       </div>
     </div>
   </div>
-</article>
+  </article>
+  <p
+    id='orbit-label'
+    aria-live='polite'
+    class='mt-8 sm:mt-10 px-5 py-2 rounded-full bg-white/5 border border-white/15 text-white text-sm sm:text-base font-semibold tracking-wide text-center min-w-[140px] sm:min-w-[180px] opacity-0 transition-opacity duration-200 backdrop-blur-sm'
+  >
+    &nbsp;
+  </p>
+</div>
+
+<script>
+  const root = document.getElementById("orbit-root");
+  const label = document.getElementById("orbit-label");
+  if (root && label) {
+    root.addEventListener(
+      "mouseover",
+      (event) => {
+        const target = event.target as Element | null;
+        const planet = target?.closest?.(".planet");
+        if (planet) {
+          const name = planet.getAttribute("data-name") ?? "";
+          if (name) {
+            label.textContent = name;
+            label.style.opacity = "1";
+          }
+        }
+      },
+      { passive: true }
+    );
+    root.addEventListener("mouseleave", () => {
+      label.style.opacity = "0";
+    });
+  }
+</script>
 
 <style>
   #profile2::before {
@@ -143,7 +203,7 @@ import AstroIcon from "@/components/icons/AstroIcon.astro";
     z-index: -1;
   }
 
-  #orbit::before {
+  .orbit::before {
     content: "";
     position: absolute;
     top: 0;
@@ -168,5 +228,9 @@ import AstroIcon from "@/components/icons/AstroIcon.astro";
       linear-gradient(white, white) padding-box,
       linear-gradient(white, white);
     mask-composite: exclude;
+  }
+
+  #orbit-root:hover :global(.planet) {
+    animation-play-state: paused;
   }
 </style>

@@ -1,7 +1,7 @@
 ---
-const { class: className } = Astro.props;
+const { class: className, ...rest } = Astro.props;
 ---
 
-<article class=`project ${className} w-full mb-32 relative`>
+<article class={`project ${className ?? ""} w-full mb-32 relative`} {...rest}>
   <slot />
 </article>

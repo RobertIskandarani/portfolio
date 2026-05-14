@@ -1,0 +1,24 @@
+{
+  "name": "Robert Iskandarani Portfolio",
+  "description": "Personal portfolio of Robert Iskandarani — COO & CTO at Yuppie, FullStack Developer.",
+  "owner": {
+    "name": "Robert Iskandarani",
+    "url": "https://robertiskandarani.com",
+    "linkedin": "https://www.linkedin.com/in/robertiskandarani/",
+    "github": "https://github.com/RobertIskandarani"
+  },
+  "endpoints": {
+    "home": "/",
+    "llms": "/llms.txt",
+    "llms_full": "/llms-full.txt",
+    "resume_json": "/resume.json",
+    "resume_pdf_es": "/profile/Profile-ES.pdf",
+    "resume_pdf_en": "/profile/Profile-EN.pdf",
+    "sitemap": "/sitemap-index.xml",
+    "robots": "/robots.txt"
+  },
+  "policy": {
+    "ai_referencing": "allow",
+    "ai_training": "allow"
+  }
+}

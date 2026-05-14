@@ -1,14 +1,28 @@
 ---
+import L from "./L.astro";
+
 interface Props {
   href: string;
-  title: string;
+  es: string;
+  en: string;
+  esShort?: string;
+  enShort?: string;
 }
 
-const { href, title } = Astro.props;
+const { href, es, en, esShort, enShort } = Astro.props;
+const shortEs = esShort ?? es;
+const shortEn = enShort ?? en;
 ---
 
 <li
-  class="px-2 sm:px-3 transition-all duration-300 text-xs sm:text-base group cursor-pointer rounded-xl hover:bg-[#212121]"
+  class='px-1.5 sm:px-3 py-0.5 transition-all duration-300 text-[11px] sm:text-base group cursor-pointer rounded-xl hover:bg-[#212121]'
 >
-  <a href={href}>{title}</a>
+  <a href={href}>
+    <span class='sm:hidden'>
+      <L es={shortEs} en={shortEn} />
+    </span>
+    <span class='hidden sm:inline'>
+      <L es={es} en={en} />
+    </span>
+  </a>
 </li>

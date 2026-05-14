@@ -3,23 +3,94 @@ import FooterLink from "./FooterLink.astro";
 import DownloadIcon from "./icons/DownloadIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 import LinkedInIcon from "./icons/LinkedInIcon.astro";
+import { profile } from "@/data/profile";
+import L from "./L.astro";
+
+const year = new Date().getFullYear();
 ---
 
-<footer
-  class="w-full flex justify-center items-center py-20 mt-16 bg-black/30 backdrop-blur-sm"
->
-  <ul class="flex flex-col sm:flex-row justify-center items-center w-2/3 gap-8">
-    <FooterLink
-      href="https://www.linkedin.com/in/robertiskandarani/"
-      content="LinkedIn"
+<footer id='site-footer' class='relative w-full mt-12 sm:mt-20'>
+  <div
+    aria-hidden='true'
+    class='footer-bg pointer-events-none absolute inset-0 -z-10'
+  >
+  </div>
+  <div
+    aria-hidden='true'
+    class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent'
+  >
+  </div>
+  <div
+    class='w-11/12 sm:w-2/3 mx-auto pt-12 sm:pt-14 pb-6 sm:pb-8 flex flex-col items-center gap-8'
+  >
+    <div class='flex flex-col items-center gap-2 text-center'>
+      <p
+        class='text-2xl sm:text-3xl font-bold text-white tracking-tight text-balance'
+      >
+        <L es='¿Construimos algo juntos?' en="Let's build something together?" />
+      </p>
+      <a
+        href={`mailto:robertiska2005@gmail.com`}
+        class='text-sky-400 hover:text-sky-300 transition-colors text-sm sm:text-base'
+      >
+        robertiska2005@gmail.com
+      </a>
+    </div>
+
+    <ul class='flex flex-wrap justify-center items-stretch gap-3 sm:gap-4'>
+      <FooterLink href={profile.linkedin} content='LinkedIn'>
+        <LinkedInIcon slot='icon' color='white' />
+      </FooterLink>
+      <FooterLink href={profile.github} content='GitHub'>
+        <GithubIcon slot='icon' color='white' />
+      </FooterLink>
+      <FooterLink
+        href='/profile/Profile-ES.pdf'
+        content='CV (ES)'
+        download='Roberto-Iskandarani-CV-ES'
+      >
+        <DownloadIcon slot='icon' color='white' />
+      </FooterLink>
+      <FooterLink
+        href='/profile/Profile-EN.pdf'
+        content='CV (EN)'
+        download='Roberto-Iskandarani-CV-EN'
+      >
+        <DownloadIcon slot='icon' color='white' />
+      </FooterLink>
+    </ul>
+
+    <div
+      class='w-full pt-5 border-t border-white/10 flex justify-center text-xs sm:text-sm text-white/50'
     >
-      <LinkedInIcon slot="icon" color="white" />
-    </FooterLink>
-    <FooterLink href="/profile/Profile.pdf" content="Descargar CV">
-      <DownloadIcon slot="icon" color="white" />
-    </FooterLink>
-    <FooterLink href="https://github.com/RobertIskandarani" content="Github">
-      <GithubIcon slot="icon" color="white" />
-    </FooterLink>
-  </ul>
+      <span>© {year} {profile.name}</span>
+    </div>
+  </div>
 </footer>
+
+<style>
+  .footer-bg {
+    background:
+      radial-gradient(
+        ellipse 70% 60% at 20% 100%,
+        rgba(56, 189, 248, 0.18),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 70% 60% at 80% 100%,
+        rgba(129, 140, 248, 0.16),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 40% 40% at 50% 0%,
+        rgba(244, 114, 182, 0.08),
+        transparent 70%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(7, 7, 12, 0) 0%,
+        rgba(7, 7, 18, 0.55) 35%,
+        rgba(7, 7, 24, 0.92) 100%
+      );
+  }
+</style>

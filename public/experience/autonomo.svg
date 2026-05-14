@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" aria-label="Freelance">
+  <g fill="none" stroke="#0a0a0f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="22,20 8,32 22,44" />
+    <polyline points="42,20 56,32 42,44" />
+    <line x1="38" y1="14" x2="26" y2="50" stroke="#38bdf8" />
+  </g>
+</svg>

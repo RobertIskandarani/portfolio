@@ -2,6 +2,7 @@
 import LinkButton from "./LinkButton.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 import WebIcon from "./icons/WebIcon.astro";
+import L from "./L.astro";
 
 const { web, git } = Astro.props;
 ---
@@ -17,11 +18,15 @@ const { web, git } = Astro.props;
   >
     <LinkButton href={web}>
       <WebIcon slot="icon" />
-       Ir al sitio web
+      <L es="Ir al sitio web" en="Visit website" />
     </LinkButton>
-    <LinkButton href={git}>
-      <GithubIcon slot="icon" color="white" />
-       Ver código fuente
-    </LinkButton>
+    {
+      git && (
+        <LinkButton href={git}>
+          <GithubIcon slot='icon' color='white' />
+          <L es="Ver código fuente" en="View source code" />
+        </LinkButton>
+      )
+    }
   </div>
 </div>

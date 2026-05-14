@@ -10,6 +10,7 @@ import LinkButton from "@/components/LinkButton.astro";
 import Projects from "@/components/Projects.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 import ProjectsBackground from "@/components/ProjectsBackground.astro";
+import L from "@/components/L.astro";
 ---
 
 <Layout title="Portfolio - Robert Iskandarani">
@@ -30,10 +31,12 @@ import ProjectsBackground from "@/components/ProjectsBackground.astro";
         <div
           class="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 mb-4"
         >
-          <SectionTitle>Experiencia laboral</SectionTitle>
+          <SectionTitle>
+            <L es="Experiencia laboral" en="Work experience" />
+          </SectionTitle>
           <LinkButton href="https://www.linkedin.com/in/robertiskandarani/">
             <LinkedInIcon slot="icon" />
-             Ver Linkedin
+            <L es="Ver Linkedin" en="View LinkedIn" />
           </LinkButton>
         </div>
         <Timeline />
@@ -45,7 +48,9 @@ import ProjectsBackground from "@/components/ProjectsBackground.astro";
       class="flex min-h-dvh flex-col justify-center items-center relative my-16"
     >
       <div class="w-11/12 sm:w-2/3 flex-col justify-center items-start">
-        <SectionTitle>Mis Proyectos</SectionTitle>
+        <SectionTitle>
+          <L es="Mis Proyectos" en="My Projects" />
+        </SectionTitle>
         <Projects />
       </div>
 
